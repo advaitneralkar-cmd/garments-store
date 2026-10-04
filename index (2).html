@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StyleHub Garments Store - BIS AI Model</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+header{background:#182848;color:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center}
+header h1{margin:0;font-size:24px}.badge{background:#fff;color:#182848;padding:8px 12px;border-radius:20px;font-weight:bold}
+nav{display:flex;gap:10px;flex-wrap:wrap;padding:14px 6%;background:white;box-shadow:0 2px 8px #0001}
+button{border:0;border-radius:8px;padding:10px 14px;cursor:pointer;font-weight:600}
+.navbtn{background:#e9eef8;color:#182848}.navbtn.active,.primary{background:#182848;color:white}
+main{max-width:1180px;margin:25px auto;padding:0 20px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{background:white;border-radius:14px;padding:18px;box-shadow:0 3px 14px #00000012}
+.product{display:flex;flex-direction:column;gap:8px}.product .pic{height:120px;border-radius:10px;background:linear-gradient(135deg,#dbe5ff,#f8dff0);display:flex;align-items:center;justify-content:center;font-size:48px}
+.price{font-size:20px;font-weight:bold}.muted{color:#667085}.pill{display:inline-block;background:#eef3ff;padding:5px 8px;border-radius:12px;font-size:12px}
+.stat{font-size:28px;font-weight:bold}.hidden{display:none}
+table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden}
+th,td{padding:11px;border-bottom:1px solid #e8eaf0;text-align:left}th{background:#eef2f8}
+.notice{padding:12px;border-radius:10px;background:#fff7df;margin-bottom:16px}
+footer{text-align:center;padding:30px;color:#667085}
+</style>
+</head>
+<body>
+<header><h1>StyleHub Garments Store</h1><span class="badge">BIS + AI Financial Model</span></header>
+<nav>
+<button class="navbtn active" onclick="show('customer',this)">Customer</button>
+<button class="navbtn" onclick="show('admin',this)">Admin Dashboard</button>
+<button class="navbtn" onclick="show('finance',this)">Financial Terms</button>
+<button class="navbtn" onclick="show('report',this)">Reports</button>
+</nav>
+<main>
+<section id="customer">
+<div class="notice">Customer module: choose a category, view products, select a size, add items to cart and simulate payment.</div>
+<h2>Categories</h2>
+<div class="grid">
+<div class="card"><b>Men's Wear</b><p class="muted">Shirts, T-shirts, jeans</p></div>
+<div class="card"><b>Women's Wear</b><p class="muted">Kurtis, tops, dresses</p></div>
+<div class="card"><b>Kids' Wear</b><p class="muted">T-shirts, frocks, sets</p></div>
+<div class="card"><b>Accessories</b><p class="muted">Caps, belts, bags</p></div>
+</div>
+<h2>Products</h2>
+<div class="grid">
+<div class="card product"><div class="pic">👕</div><span class="pill">Men's Wear</span><h3>Cotton T-Shirt</h3><div class="price">₹800</div><label>Size <select><option>S</option><option>M</option><option>L</option><option>XL</option></select></label><button class="primary" onclick="addCart('Cotton T-Shirt',800)">Add to Cart</button></div>
+<div class="card product"><div class="pic">👗</div><span class="pill">Women's Wear</span><h3>Casual Dress</h3><div class="price">₹1,200</div><label>Size <select><option>S</option><option>M</option><option>L</option><option>XL</option></select></label><button class="primary" onclick="addCart('Casual Dress',1200)">Add to Cart</button></div>
+<div class="card product"><div class="pic">🧥</div><span class="pill">Men's Wear</span><h3>Denim Jacket</h3><div class="price">₹1,800</div><label>Size <select><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></label><button class="primary" onclick="addCart('Denim Jacket',1800)">Add to Cart</button></div>
+</div>
+<div class="card" style="margin-top:18px"><h2>Cart</h2><p id="cart">Cart is empty.</p><button class="primary" onclick="pay()">Proceed to Payment</button></div>
+</section>
+
+<section id="admin" class="hidden">
+<h2>Admin Dashboard</h2>
+<div class="grid">
+<div class="card"><div class="muted">Total Sales</div><div class="stat">₹28,000</div></div>
+<div class="card"><div class="muted">Units Sold</div><div class="stat">35</div></div>
+<div class="card"><div class="muted">Available Stock</div><div class="stat">115</div></div>
+<div class="card"><div class="muted">Gross Profit</div><div class="stat">₹9,500</div></div>
+</div>
+<h3>Inventory Management</h3>
+<table><tr><th>Product</th><th>Size</th><th>Opening</th><th>Sold</th><th>Available</th></tr>
+<tr><td>Cotton T-Shirt</td><td>M</td><td>40</td><td>12</td><td>28</td></tr>
+<tr><td>Cotton T-Shirt</td><td>L</td><td>35</td><td>15</td><td>20</td></tr>
+<tr><td>Casual Dress</td><td>M</td><td>25</td><td>5</td><td>20</td></tr>
+<tr><td>Denim Jacket</td><td>XL</td><td>50</td><td>3</td><td>47</td></tr>
+</table>
+</section>
+
+<section id="finance" class="hidden">
+<h2>Financial Terms Explained Through the Store</h2>
+<table><tr><th>Term</th><th>Meaning in StyleHub</th><th>Example</th></tr>
+<tr><td>Revenue</td><td>Money earned from sales</td><td>35 units × selling prices = ₹28,000</td></tr>
+<tr><td>Cost Price</td><td>Cost paid to acquire/make a garment</td><td>T-shirt cost = ₹500</td></tr>
+<tr><td>Selling Price</td><td>Price charged to customer</td><td>T-shirt selling price = ₹800</td></tr>
+<tr><td>COGS</td><td>Cost of garments actually sold</td><td>10 T-shirts × ₹500 = ₹5,000</td></tr>
+<tr><td>Gross Profit</td><td>Revenue − COGS</td><td>₹8,000 − ₹5,000 = ₹3,000</td></tr>
+<tr><td>Net Profit</td><td>Profit after operating expenses</td><td>Gross profit − expenses</td></tr>
+<tr><td>Inventory</td><td>Unsold stock available in store</td><td>40 units remaining</td></tr>
+<tr><td>Discount</td><td>Reduction from listed selling price</td><td>₹800 − ₹100 discount = ₹700</td></tr>
+</table>
+</section>
+
+<section id="report" class="hidden">
+<h2>Detailed Management Report</h2>
+<div class="grid">
+<div class="card"><h3>Size-wise Stock</h3><p>S: 18 available</p><p>M: 48 available</p><p>L: 32 available</p><p>XL: 14 available</p><p>XXL: 3 available</p></div>
+<div class="card"><h3>Sales Status</h3><p>Sold: 35 units</p><p>Available: 115 units</p><p>Total stock handled: 150 units</p></div>
+<div class="card"><h3>Category Sales</h3><p>Men's Wear: ₹16,000</p><p>Women's Wear: ₹8,000</p><p>Kids' Wear: ₹3,000</p><p>Accessories: ₹1,000</p></div>
+</div>
+</section>
+</main>
+<footer>Academic demonstration model for Business Information Systems Assignment</footer>
+<script>
+let total=0,items=[];
+function show(id,btn){document.querySelectorAll('main>section').forEach(s=>s.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+function addCart(name,price){items.push(name);total+=price;document.getElementById('cart').innerText=items.join(', ')+' | Total: ₹'+total}
+function pay(){if(!items.length){alert('Add a product to the cart first.');return}alert('Demo payment successful. Order confirmed for ₹'+total+'.')}
+</script>
+</body>
+</html>
